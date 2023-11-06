@@ -1,20 +1,20 @@
 
-set({prefix}_DEFINITIONS)
+set(GXZN_GXZN_THRDS_DEFINITIONS)
 
-if({prefix}_DEFINITIONS_INIT)
-	set({prefix}_DEFINITIONS ${{prefix}_DEFINITIONS_INIT})
+if(GXZN_GXZN_THRDS_DEFINITIONS_INIT)
+	set(GXZN_GXZN_THRDS_DEFINITIONS ${GXZN_GXZN_THRDS_DEFINITIONS_INIT})
 endif()
 
 string(TOUPPER ${CMAKE_BUILD_TYPE} upper_build_type)
-if({prefix}_DEFINITIONS_${upper_build_type})
-	list(APPEND {prefix}_DEFINITIONS ${{prefix}_DEFINITIONS_${upper_build_type}})
+if(GXZN_GXZN_THRDS_DEFINITIONS_${upper_build_type})
+	list(APPEND GXZN_GXZN_THRDS_DEFINITIONS ${GXZN_GXZN_THRDS_DEFINITIONS_${upper_build_type}})
 endif()
 unset(upper_build_type)
 
-if({prefix}_SYSTEM)
-	string(TOUPPER ${{prefix}_SYSTEM} upper_system)
-	list(APPEND {prefix}_DEFINITIONS {prefix}_SYSTEM_NAME="${{prefix}_SYSTEM}")
-	list(APPEND {prefix}_DEFINITIONS {prefix}_${upper_system}=1)
+if(GXZN_GXZN_THRDS_SYSTEM)
+	string(TOUPPER ${GXZN_GXZN_THRDS_SYSTEM} upper_system)
+	list(APPEND GXZN_GXZN_THRDS_DEFINITIONS GXZN_GXZN_THRDS_SYSTEM_NAME="${GXZN_GXZN_THRDS_SYSTEM}")
+	list(APPEND GXZN_GXZN_THRDS_DEFINITIONS GXZN_GXZN_THRDS_${upper_system}=1)
 endif()
 
 unset(__me_suffixes)

@@ -3,33 +3,33 @@ set(USE_FOLDERS ON)
 set(CMAKE_REQUIRED_QUIET ON)
 
 list(APPEND CMAKE_MODULE_PATH
-	${{prefix}_ROOT}/cmake
-	${{prefix}_ROOT}/cmake/tools
+	${GXZN_GXZN_THRDS_ROOT}/cmake
+	${GXZN_GXZN_THRDS_ROOT}/cmake/tools
 )
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
-	set({prefix}_IS_TOPLEVEL_PROJECT TRUE)
+	set(GXZN_GXZN_THRDS_IS_TOPLEVEL_PROJECT TRUE)
 else()
-	set({prefix}_IS_TOPLEVEL_PROJECT FALSE)
+	set(GXZN_GXZN_THRDS_IS_TOPLEVEL_PROJECT FALSE)
 endif()
 
-option({prefix}_BUILD_TEST           "Build {submodule}'s tests"    ${{prefix}_IS_TOPLEVEL_PROJECT})
-option({prefix}_DEV_MODE             "Developer mode"              ${{prefix}_IS_TOPLEVEL_PROJECT})
-option({prefix}_GENERATE_INFO_HEADER "Generate info header"        OFF)
-option({prefix}_GENERATE_DOCS        "Generate MCSS documentation" OFF)
-mark_as_advanced({prefix}_DEV_MODE {prefix}_GENERATE_INFO_HEADER {prefix}_GENERATE_DOCS)
+option(GXZN_GXZN_THRDS_BUILD_TEST           "Build threads's tests"    ${GXZN_GXZN_THRDS_IS_TOPLEVEL_PROJECT})
+option(GXZN_GXZN_THRDS_DEV_MODE             "Developer mode"              ${GXZN_GXZN_THRDS_IS_TOPLEVEL_PROJECT})
+option(GXZN_GXZN_THRDS_GENERATE_INFO_HEADER "Generate info header"        OFF)
+option(GXZN_GXZN_THRDS_GENERATE_DOCS        "Generate MCSS documentation" OFF)
+mark_as_advanced(GXZN_GXZN_THRDS_DEV_MODE GXZN_GXZN_THRDS_GENERATE_INFO_HEADER GXZN_GXZN_THRDS_GENERATE_DOCS)
 
 include(GetSystemInfo)
 
-get_system_info({prefix}_SYSTEM {prefix}_ARCH)
+get_system_info(GXZN_GXZN_THRDS_SYSTEM GXZN_GXZN_THRDS_ARCH)
 
-set({prefix}_OUT ${CMAKE_BINARY_DIR})
-set({prefix}_CODE_DIR ${{prefix}_ROOT}/code  CACHE PATH "Code directory")
-set({prefix}_TEST_DIR ${{prefix}_ROOT}/tests CACHE PATH "Tests directory")
-set({prefix}_DOCS_DIR ${{prefix}_ROOT}/docs  CACHE PATH "Documentation directory")
+set(GXZN_GXZN_THRDS_OUT ${CMAKE_BINARY_DIR})
+set(GXZN_GXZN_THRDS_CODE_DIR ${GXZN_GXZN_THRDS_ROOT}/code  CACHE PATH "Code directory")
+set(GXZN_GXZN_THRDS_TEST_DIR ${GXZN_GXZN_THRDS_ROOT}/tests CACHE PATH "Tests directory")
+set(GXZN_GXZN_THRDS_DOCS_DIR ${GXZN_GXZN_THRDS_ROOT}/docs  CACHE PATH "Documentation directory")
 
 # App info
-set({prefix}_APP_AUTHOR         "Ruslan Golovinskii")
+set(GXZN_GXZN_THRDS_APP_AUTHOR         "Ruslan Golovinskii")
 
 if (NOT CMAKE_CXX_STANDARD)
 	set(CMAKE_CXX_STANDARD 20)
@@ -39,21 +39,21 @@ if(CMAKE_CXX_STANDARD LESS 20)
 	message(FATAL_ERROR "CMAKE_CXX_STANDARD must be at least 20")
 endif()
 
-message(STATUS "-- -- -- -- -- -- -- {submodule} configuration -- -- -- -- -- -- -- --")
-message(STATUS "System:                 ${{prefix}_SYSTEM} (${{prefix}_ARCH})")
+message(STATUS "-- -- -- -- -- -- -- threads configuration -- -- -- -- -- -- -- --")
+message(STATUS "System:                 ${GXZN_GXZN_THRDS_SYSTEM} (${GXZN_GXZN_THRDS_ARCH})")
 message(STATUS "C++ Standard:           ${CMAKE_CXX_STANDARD}")
 message(STATUS "C Standard:             ${CMAKE_C_STANDARD}")
 message(STATUS "Compiler (ID):          ${CMAKE_CXX_COMPILER_ID} (${CMAKE_CXX_COMPILER_ID})")
-message(STATUS "Root directory:         ${{prefix}_ROOT}")
-message(STATUS "Build directory:        ${{prefix}_OUT}")
-message(STATUS "Code directory:         ${{prefix}_CODE_DIR}")
-message(STATUS "Top level:              ${{prefix}_IS_TOPLEVEL_PROJECT}")
+message(STATUS "Root directory:         ${GXZN_GXZN_THRDS_ROOT}")
+message(STATUS "Build directory:        ${GXZN_GXZN_THRDS_OUT}")
+message(STATUS "Code directory:         ${GXZN_GXZN_THRDS_CODE_DIR}")
+message(STATUS "Top level:              ${GXZN_GXZN_THRDS_IS_TOPLEVEL_PROJECT}")
 
-if({prefix}_DEV_MODE)
-	message(STATUS "Tests:                  ${{prefix}_BUILD_TEST}")
-	message(STATUS "Generate info header:   ${{prefix}_GENERATE_INFO_HEADER}")
-	message(STATUS "Generate documentation: ${{prefix}_GENERATE_DOCS}")
-	message(STATUS "Documentation directory:${{prefix}_DOCS_DIR}")
+if(GXZN_GXZN_THRDS_DEV_MODE)
+	message(STATUS "Tests:                  ${GXZN_GXZN_THRDS_BUILD_TEST}")
+	message(STATUS "Generate info header:   ${GXZN_GXZN_THRDS_GENERATE_INFO_HEADER}")
+	message(STATUS "Generate documentation: ${GXZN_GXZN_THRDS_GENERATE_DOCS}")
+	message(STATUS "Documentation directory:${GXZN_GXZN_THRDS_DOCS_DIR}")
 endif()
 
 message(STATUS "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --")

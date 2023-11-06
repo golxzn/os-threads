@@ -1,11 +1,11 @@
-<h1 align="center">golxzn::{module}::{submodule}</h1>
+<h1 align="center">golxzn::os::threads</h1>
 
 <div align="center">
 
 <!-- Uncomment to use CI
-![Ubuntu](https://github.com/golxzn/{module}-{submodule}/actions/workflows/ci-static-lib-ubuntu.yml/badge.svg)
-![Windows](https://github.com/golxzn/{module}-{submodule}/actions/workflows/ci-static-lib-windows.yml/badge.svg)
-![MacOS](https://github.com/golxzn/{module}-{submodule}/actions/workflows/ci-static-lib-macos.yml/badge.svg)
+![Ubuntu](https://github.com/golxzn/os-threads/actions/workflows/ci-static-lib-ubuntu.yml/badge.svg)
+![Windows](https://github.com/golxzn/os-threads/actions/workflows/ci-static-lib-windows.yml/badge.svg)
+![MacOS](https://github.com/golxzn/os-threads/actions/workflows/ci-static-lib-macos.yml/badge.svg)
  -->
 
 </div>

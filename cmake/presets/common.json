@@ -20,7 +20,7 @@
 			"name": "disable-docs",
 			"hidden": true,
 			"cacheVariables": {
-				"{prefix}_GENERATE_DOCS": "FALSE"
+				"GXZN_GXZN_THRDS_GENERATE_DOCS": "FALSE"
 			}
 		},
 		{
@@ -47,7 +47,7 @@
 			"inherits": [ "misc", "pedantic" ],
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Release",
-				"{prefix}_DEFINITIONS_RELEASE": "NDEBUG;{prefix}_RELEASE"
+				"GXZN_GXZN_THRDS_DEFINITIONS_RELEASE": "NDEBUG;GXZN_GXZN_THRDS_RELEASE"
 			}
 		},
 		{
@@ -56,7 +56,7 @@
 			"inherits": [ "misc", "pedantic" ],
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Debug",
-				"{prefix}_DEFINITIONS_DEBUG": "{prefix}_DEBUG"
+				"GXZN_GXZN_THRDS_DEFINITIONS_DEBUG": "GXZN_GXZN_THRDS_DEBUG"
 			}
 		}
 	]

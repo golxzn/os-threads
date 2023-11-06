@@ -1,5 +1,5 @@
 
-if(NOT {prefix}_BUILD_TEST)
+if(NOT GXZN_GXZN_THRDS_BUILD_TEST)
 	return()
 endif()
 
@@ -16,20 +16,20 @@ FetchContent_Declare(Catch2
 FetchContent_MakeAvailable(Catch2)
 message(CHECK_PASS "Catch2 fetched")
 
-file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${{prefix}_TEST_DIR}/code/*.cpp")
-file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${{prefix}_TEST_DIR}/code/*.h")
+file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${GXZN_GXZN_THRDS_TEST_DIR}/code/*.cpp")
+file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${GXZN_GXZN_THRDS_TEST_DIR}/code/*.h")
 
-add_executable({submodule}_tests ${sources} ${headers})
-target_link_libraries({submodule}_tests PRIVATE
-	golxzn::{module}::{submodule}
+add_executable(threads_tests ${sources} ${headers})
+target_link_libraries(threads_tests PRIVATE
+	golxzn::os::threads
 	Catch2::Catch2WithMain
 )
-set_target_properties({submodule}_tests PROPERTIES
-	RUNTIME_OUTPUT_DIRECTORY ${{prefix}_ROOT}/bin
+set_target_properties(threads_tests PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY ${GXZN_GXZN_THRDS_ROOT}/bin
 	FOLDER "golxzn/tests"
 )
 
 include(CTest)
 include(Catch)
 
-add_test(NAME Tests COMMAND {submodule}_tests WORKING_DIRECTORY ${{prefix}_ROOT}/bin)
+add_test(NAME Tests COMMAND threads_tests WORKING_DIRECTORY ${GXZN_GXZN_THRDS_ROOT}/bin)
